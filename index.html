@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="theme-color" content="#050507">
+  <title>Earn With Jandeja</title>
   <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -19,212 +22,120 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=2235126550389139&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-  
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#100518">
-
-  <title>Earn With Jandeja</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --pink:#ff3c9d;
-      --pink-light:#ff9dce;
-      --purple:#9b5cff;
-      --gold:#ffd166;
-      --white:#fff9fc;
-      --muted:rgba(255,255,255,.69);
-      --line:rgba(255,255,255,.13);
-    }
+    *{margin:0;padding:0;box-sizing:border-box}
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    html,
-    body{
+    html,body{
       width:100%;
       min-height:100%;
-      background:#100518;
       font-family:'Poppins',sans-serif;
+      background:#050507;
     }
 
-    body{
-      overflow-x:hidden;
-    }
-
-    a{
-      -webkit-tap-highlight-color:transparent;
-    }
+    body{overflow-x:hidden}
 
     .jandeja-page{
       position:relative;
-      isolation:isolate;
       width:100%;
       min-height:100svh;
-      padding:32px 18px;
+      padding:35px 20px;
       display:flex;
       align-items:center;
       justify-content:center;
       overflow:hidden;
       color:#fff;
       background:
-        radial-gradient(
-          circle at 12% 18%,
-          rgba(255,60,157,.34),
-          transparent 34%
-        ),
-        radial-gradient(
-          circle at 88% 78%,
-          rgba(155,92,255,.31),
-          transparent 36%
-        ),
-        linear-gradient(
-          140deg,
-          #0a020d 0%,
-          #210820 48%,
-          #0d071d 100%
-        );
+        radial-gradient(circle at 15% 20%,rgba(226,0,27,.35),transparent 34%),
+        radial-gradient(circle at 85% 75%,rgba(0,99,255,.30),transparent 36%),
+        linear-gradient(135deg,#050507 0%,#10030a 45%,#020916 100%);
     }
 
-    .glow{
+    .live-light{
       position:absolute;
-      z-index:-3;
-      width:430px;
-      height:430px;
+      width:420px;
+      height:420px;
       border-radius:50%;
-      filter:blur(90px);
-      opacity:.3;
+      filter:blur(80px);
+      opacity:.32;
       pointer-events:none;
-      animation:glowMove 10s ease-in-out infinite alternate;
+      animation:moveLight 10s ease-in-out infinite alternate;
     }
 
-    .glow-one{
-      top:-190px;
-      left:-150px;
-      background:var(--pink);
-    }
-
-    .glow-two{
-      right:-170px;
-      bottom:-190px;
-      background:var(--purple);
-      animation-delay:-4s;
-    }
+    .live-light.red{top:-180px;left:-130px;background:#ff001e}
+    .live-light.blue{right:-160px;bottom:-180px;background:#006eff;animation-delay:-4s}
 
     .grid{
       position:absolute;
-      z-index:-2;
       inset:-50%;
       width:200%;
       height:200%;
-      opacity:.12;
+      opacity:.15;
       pointer-events:none;
       background-image:
-        linear-gradient(
-          rgba(255,255,255,.14) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,.14) 1px,
-          transparent 1px
-        );
-      background-size:52px 52px;
-      transform:perspective(540px) rotateX(58deg);
-      animation:gridMove 13s linear infinite;
+        linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);
+      background-size:55px 55px;
+      transform:perspective(500px) rotateX(55deg);
+      animation:moveGrid 12s linear infinite;
     }
 
     .particle{
       position:absolute;
-      bottom:-18px;
+      bottom:-20px;
       width:6px;
       height:6px;
       border-radius:50%;
       background:#fff;
-      box-shadow:0 0 15px var(--pink-light);
+      box-shadow:0 0 16px #fff;
       opacity:0;
-      pointer-events:none;
-      animation:particleUp 7s linear infinite;
+      animation:floatParticle 7s linear infinite;
     }
 
-    .p1{left:10%}
-    .p2{left:31%;animation-delay:2s}
-    .p3{left:67%;animation-delay:4s}
-    .p4{left:89%;animation-delay:1s}
+    .p1{left:12%}.p2{left:30%;animation-delay:2s}
+    .p3{left:68%;animation-delay:4s}.p4{left:88%;animation-delay:1s}
 
-    .card{
+    .content{
       position:relative;
-      z-index:4;
-      width:min(100%,720px);
-      padding:42px 35px 30px;
-      overflow:hidden;
-      border:1px solid var(--line);
-      border-radius:34px;
+      z-index:5;
+      width:100%;
+      max-width:720px;
       text-align:center;
-      background:rgba(25,8,29,.74);
-      box-shadow:
-        0 35px 100px rgba(0,0,0,.48),
-        inset 0 1px rgba(255,255,255,.08);
-      backdrop-filter:blur(20px);
-      -webkit-backdrop-filter:blur(20px);
-      animation:cardEntry .9s ease-out both;
+      animation:contentEntry .9s ease-out both;
     }
 
-    .card::before{
-      content:"";
-      position:absolute;
-      top:0;
-      left:12%;
-      right:12%;
-      height:3px;
-      background:linear-gradient(
-        90deg,
-        transparent,
-        var(--pink),
-        var(--purple),
-        transparent
-      );
-      box-shadow:0 0 22px rgba(255,60,157,.45);
-    }
-
-    .profile-wrap{
+    .logo{
       position:relative;
-      width:145px;
-      height:145px;
-      margin:0 auto 25px;
+      width:138px;
+      height:138px;
+      margin:0 auto 27px;
       padding:5px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:4px solid rgba(255,255,255,.92);
       border-radius:50%;
-      background:conic-gradient(
-        from 20deg,
-        var(--gold),
-        var(--pink),
-        var(--purple),
-        #fff,
-        var(--gold)
-      );
+      background:linear-gradient(145deg,#f90027,#005bd7);
       box-shadow:
-        0 0 0 10px rgba(255,255,255,.035),
-        0 0 55px rgba(255,60,157,.38);
-      animation:profileFloat 3.5s ease-in-out infinite;
+        0 0 0 9px rgba(226,0,27,.16),
+        0 0 48px rgba(255,0,38,.6);
+      animation:logoFloat 3s ease-in-out infinite;
     }
 
-    .profile-wrap::after{
+    .logo::after{
       content:"";
       position:absolute;
-      inset:-14px;
-      border:1px solid rgba(255,157,206,.32);
+      inset:-13px;
+      border:1px solid rgba(255,255,255,.25);
       border-radius:50%;
-      animation:profilePulse 2.3s ease-out infinite;
+      animation:logoPulse 2s ease-out infinite;
     }
 
-    .profile-photo{
+    .logo img{
       position:relative;
       z-index:2;
       width:100%;
@@ -232,156 +143,96 @@ src="https://www.facebook.com/tr?id=2235126550389139&ev=PageView&noscript=1"
       display:block;
       object-fit:cover;
       object-position:center top;
-      border:5px solid #180817;
       border-radius:50%;
-      background:#180817;
+      background:#111;
     }
 
     .online-dot{
       position:absolute;
       z-index:4;
-      right:8px;
-      bottom:10px;
-      width:21px;
-      height:21px;
-      border:4px solid #180817;
+      right:7px;
+      bottom:9px;
+      width:20px;
+      height:20px;
+      border:4px solid #10030a;
       border-radius:50%;
-      background:#52f59b;
-      box-shadow:0 0 15px #52f59b;
+      background:#55f29a;
+      box-shadow:0 0 14px #55f29a;
     }
 
-    .badge{
-      margin-bottom:16px;
-      padding:8px 15px;
+    .label{
+      margin-bottom:17px;
+      padding:8px 17px;
       display:inline-flex;
       align-items:center;
       gap:8px;
-      border:1px solid rgba(255,157,206,.28);
+      border:1px solid rgba(255,255,255,.22);
       border-radius:999px;
-      color:#ffd8ea;
-      background:rgba(255,60,157,.07);
-      font-size:10px;
-      font-weight:700;
-      letter-spacing:1.3px;
+      background:rgba(255,255,255,.07);
+      backdrop-filter:blur(8px);
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:1.5px;
       text-transform:uppercase;
     }
 
-    .badge i{
-      width:7px;
-      height:7px;
+    .label-dot{
+      width:8px;
+      height:8px;
       border-radius:50%;
-      background:var(--pink-light);
-      box-shadow:0 0 12px var(--pink);
-      animation:blink 1.25s ease-in-out infinite;
+      background:#ff1238;
+      box-shadow:0 0 12px #ff1238;
+      animation:blink 1.2s ease-in-out infinite;
     }
 
     h1{
-      margin:0 0 16px;
-      font-size:clamp(43px,8vw,74px);
-      line-height:.98;
+      margin:0;
+      font-size:clamp(42px,8vw,80px);
+      line-height:1.03;
       font-weight:900;
-      letter-spacing:-3.4px;
+      letter-spacing:-3px;
       text-transform:uppercase;
-      text-shadow:0 9px 32px rgba(0,0,0,.5);
+      text-shadow:0 7px 30px rgba(0,0,0,.55);
     }
 
     h1 span{
       display:block;
       color:transparent;
-      background:linear-gradient(
-        90deg,
-        #fff 0%,
-        #ffadd4 38%,
-        #ff3c9d 68%,
-        #c695ff 100%
-      );
+      background:linear-gradient(90deg,#ff163c,#fff 48%,#1681ff);
       background-clip:text;
       -webkit-background-clip:text;
     }
 
     .description{
-      max-width:560px;
-      margin:0 auto 25px;
-      color:var(--muted);
-      font-size:14px;
+      max-width:570px;
+      margin:19px auto 30px;
+      color:rgba(255,255,255,.76);
+      font-size:16px;
       line-height:1.7;
-    }
-
-    .features{
-      max-width:560px;
-      margin:0 auto 27px;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:9px;
-    }
-
-    .feature{
-      padding:12px 8px;
-      border:1px solid rgba(255,255,255,.09);
-      border-radius:13px;
-      background:rgba(255,255,255,.03);
-      transition:
-        transform .25s ease,
-        border-color .25s ease,
-        background .25s ease;
-    }
-
-    .feature:hover{
-      transform:translateY(-3px);
-      border-color:rgba(255,60,157,.34);
-      background:rgba(255,60,157,.06);
-    }
-
-    .feature span{
-      display:block;
-      margin-bottom:5px;
-      color:var(--pink-light);
-      font-size:17px;
-    }
-
-    .feature b{
-      display:block;
-      font-size:9px;
-    }
-
-    .feature small{
-      display:block;
-      margin-top:2px;
-      color:rgba(255,255,255,.44);
-      font-size:7px;
     }
 
     .telegram-btn{
       position:relative;
-      width:min(100%,390px);
-      min-height:60px;
-      padding:16px 22px;
+      min-width:250px;
+      padding:17px 29px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:11px;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,.5);
+      border:1px solid rgba(255,255,255,.7);
       border-radius:999px;
       color:#fff;
-      background:linear-gradient(
-        100deg,
-        #ff187f 0%,
-        #ff4aa4 48%,
-        #9256ed 100%
-      );
+      background:linear-gradient(90deg,#e80024,#b5003e,#005fd3);
       box-shadow:
-        0 18px 48px rgba(255,24,127,.34),
-        inset 0 1px rgba(255,255,255,.35);
+        0 12px 35px rgba(224,0,33,.38),
+        inset 0 1px rgba(255,255,255,.3);
       text-decoration:none;
       text-transform:uppercase;
-      font-size:13px;
-      font-weight:800;
-      letter-spacing:.55px;
-      transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        filter .3s ease;
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.7px;
+      transition:transform .3s ease,box-shadow .3s ease;
     }
 
     .telegram-btn::before{
@@ -389,305 +240,122 @@ src="https://www.facebook.com/tr?id=2235126550389139&ev=PageView&noscript=1"
       position:absolute;
       top:0;
       left:-120%;
-      width:58%;
+      width:60%;
       height:100%;
-      transform:skewX(-24deg);
-      background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.5),
-        transparent
-      );
-      animation:shine 3.2s ease-in-out infinite;
+      transform:skewX(-25deg);
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
+      animation:buttonShine 3s ease-in-out infinite;
     }
 
     .telegram-btn:hover{
-      transform:translateY(-4px) scale(1.02);
-      filter:saturate(1.12);
+      transform:translateY(-4px) scale(1.03);
       box-shadow:
-        0 25px 58px rgba(255,24,127,.48),
-        0 0 28px rgba(155,92,255,.18);
+        0 18px 45px rgba(224,0,33,.55),
+        0 0 25px rgba(0,110,255,.23);
     }
 
-    .telegram-btn:active{
-      transform:scale(.97);
-    }
-
-    .telegram-btn svg,
-    .telegram-btn span{
-      position:relative;
-      z-index:2;
-    }
-
-    .telegram-btn svg{
-      width:22px;
-      height:22px;
-      flex:none;
-    }
-
-    .age-notice{
-      max-width:500px;
-      margin:21px auto 0;
-      padding:10px 13px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:9px;
-      border:1px solid rgba(255,157,206,.14);
-      border-radius:13px;
-      color:rgba(255,255,255,.56);
-      background:rgba(255,255,255,.03);
-      font-size:9px;
-      line-height:1.5;
-    }
-
-    .age-icon{
-      width:33px;
-      height:33px;
-      flex:none;
-      display:grid;
-      place-items:center;
-      border:1px solid rgba(255,157,206,.45);
-      border-radius:50%;
-      color:#ffd6e9;
-      background:rgba(255,60,157,.07);
-      font-size:9px;
-      font-weight:900;
-    }
+    .telegram-btn:active{transform:scale(.97)}
+    .telegram-btn svg,.telegram-btn span{position:relative;z-index:2}
+    .telegram-btn svg{width:22px;height:22px}
 
     .brand{
-      margin-top:23px;
-      color:rgba(255,255,255,.38);
-      font-size:9px;
+      margin-top:55px;
+      color:rgba(255,255,255,.5);
+      font-size:11px;
       font-weight:600;
-      letter-spacing:2.4px;
+      letter-spacing:3px;
       text-transform:uppercase;
     }
 
-    .brand strong{
-      color:var(--pink-light);
-      font-weight:900;
+    .brand strong{color:#fff;font-weight:700}
+
+    @keyframes moveLight{
+      from{transform:translate(0,0) scale(1)}
+      to{transform:translate(70px,55px) scale(1.25)}
     }
 
-    @keyframes cardEntry{
-      from{
-        opacity:0;
-        transform:translateY(25px) scale(.985);
-      }
-
-      to{
-        opacity:1;
-        transform:none;
-      }
+    @keyframes moveGrid{
+      from{background-position:0 0}
+      to{background-position:0 110px}
     }
 
-    @keyframes glowMove{
-      to{
-        transform:translate(65px,50px) scale(1.2);
-      }
+    @keyframes floatParticle{
+      0%{transform:translateY(0) scale(.4);opacity:0}
+      20%{opacity:.7}
+      100%{transform:translateY(-110vh) scale(1.3);opacity:0}
     }
 
-    @keyframes gridMove{
-      to{
-        background-position:0 104px;
-      }
+    @keyframes contentEntry{
+      from{opacity:0;transform:translateY(25px)}
+      to{opacity:1;transform:translateY(0)}
     }
 
-    @keyframes particleUp{
-      0%{
-        transform:translateY(0) scale(.4);
-        opacity:0;
-      }
-
-      20%{
-        opacity:.7;
-      }
-
-      100%{
-        transform:translateY(-110vh) scale(1.3);
-        opacity:0;
-      }
+    @keyframes logoFloat{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-9px)}
     }
 
-    @keyframes profileFloat{
-      0%,100%{
-        transform:translateY(0);
-      }
-
-      50%{
-        transform:translateY(-9px);
-      }
+    @keyframes logoPulse{
+      from{transform:scale(.9);opacity:.8}
+      to{transform:scale(1.18);opacity:0}
     }
 
-    @keyframes profilePulse{
-      from{
-        transform:scale(.92);
-        opacity:.85;
-      }
+    @keyframes blink{50%{opacity:.35}}
 
-      to{
-        transform:scale(1.18);
-        opacity:0;
-      }
-    }
-
-    @keyframes blink{
-      50%{
-        opacity:.3;
-      }
-    }
-
-    @keyframes shine{
-      0%,36%{
-        left:-120%;
-      }
-
-      72%,100%{
-        left:155%;
-      }
+    @keyframes buttonShine{
+      0%,35%{left:-120%}
+      70%,100%{left:150%}
     }
 
     @media(max-width:600px){
-      .jandeja-page{
-        padding:20px 12px;
+      .jandeja-page{min-height:100svh;padding:28px 16px}
+
+      .logo{
+        width:112px;
+        height:112px;
+        margin-bottom:23px;
       }
 
-      .card{
-        padding:31px 16px 23px;
-        border-radius:27px;
-      }
-
-      .profile-wrap{
-        width:116px;
-        height:116px;
-        margin-bottom:21px;
-      }
-
-      .badge{
-        margin-bottom:13px;
-        padding:7px 12px;
-        font-size:8px;
-        letter-spacing:1px;
+      .label{
+        margin-bottom:15px;
+        padding:7px 13px;
+        font-size:10px;
+        letter-spacing:1.1px;
       }
 
       h1{
-        margin-bottom:13px;
-        font-size:clamp(36px,12vw,50px);
-        line-height:1;
+        font-size:clamp(38px,13vw,58px);
+        line-height:1.02;
         letter-spacing:-2px;
       }
 
       .description{
-        margin-bottom:20px;
-        font-size:11.5px;
-        line-height:1.65;
-      }
-
-      .features{
-        margin-bottom:21px;
-        gap:6px;
-      }
-
-      .feature{
-        padding:10px 5px;
-        border-radius:10px;
-      }
-
-      .feature span{
+        margin:16px auto 25px;
         font-size:14px;
-      }
-
-      .feature b{
-        font-size:7.5px;
-      }
-
-      .feature small{
-        font-size:6px;
+        line-height:1.65;
       }
 
       .telegram-btn{
         width:100%;
-        min-height:55px;
-        padding:15px 16px;
-        font-size:11px;
+        max-width:320px;
+        min-width:0;
+        padding:16px 22px;
+        font-size:13px;
       }
 
-      .age-notice{
-        margin-top:17px;
-        padding:9px 10px;
-        font-size:7.5px;
-        text-align:left;
-      }
-
-      .brand{
-        margin-top:18px;
-        font-size:8px;
-      }
-
-      .grid{
-        background-size:42px 42px;
-      }
+      .brand{margin-top:43px}
+      .grid{background-size:42px 42px}
     }
 
-    @media(max-width:360px){
-      .features{
-        grid-template-columns:1fr;
-      }
-
-      .feature{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        gap:8px;
-      }
-
-      .feature span{
-        margin:0;
-      }
-
-      .feature small{
-        display:none;
-      }
-    }
-
-    @media(max-height:690px){
-      .jandeja-page{
-        padding-top:14px;
-        padding-bottom:14px;
-      }
-
-      .card{
-        padding-top:24px;
-        padding-bottom:19px;
-      }
-
-      .profile-wrap{
-        width:98px;
-        height:98px;
-        margin-bottom:15px;
-      }
-
-      .description{
-        margin-bottom:16px;
-      }
-
-      .features{
-        margin-bottom:17px;
-      }
-
-      .age-notice{
-        margin-top:14px;
-      }
-
-      .brand{
-        margin-top:14px;
-      }
+    @media(max-height:650px){
+      .jandeja-page{padding-top:16px;padding-bottom:16px}
+      .logo{width:96px;height:96px;margin-bottom:17px}
+      .description{margin-top:13px;margin-bottom:20px}
+      .brand{margin-top:28px}
     }
 
     @media(prefers-reduced-motion:reduce){
-      *,
-      *::before,
-      *::after{
+      *,*::before,*::after{
         animation-duration:.01ms!important;
         animation-iteration-count:1!important;
       }
@@ -697,9 +365,8 @@ src="https://www.facebook.com/tr?id=2235126550389139&ev=PageView&noscript=1"
 
 <body>
   <main class="jandeja-page">
-
-    <div class="glow glow-one"></div>
-    <div class="glow glow-two"></div>
+    <div class="live-light red"></div>
+    <div class="live-light blue"></div>
     <div class="grid"></div>
 
     <span class="particle p1"></span>
@@ -707,20 +374,17 @@ src="https://www.facebook.com/tr?id=2235126550389139&ev=PageView&noscript=1"
     <span class="particle p3"></span>
     <span class="particle p4"></span>
 
-    <section class="card">
-
-      <div class="profile-wrap">
+    <div class="content">
+      <div class="logo" aria-label="Earn With Jandeja logo">
         <img
-          class="profile-photo"
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=88"
-          alt="Earn With Jandeja profile logo">
-
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=600&amp;q=88"
+          alt="Earn With Jandeja profile">
         <span class="online-dot"></span>
       </div>
 
-      <div class="badge">
-        <i></i>
-        Official Telegram Community
+      <div class="label">
+        <span class="label-dot"></span>
+        Official Community
       </div>
 
       <h1>
@@ -729,31 +393,9 @@ src="https://www.facebook.com/tr?id=2235126550389139&ev=PageView&noscript=1"
       </h1>
 
       <p class="description">
-        Join our growing community for exclusive updates, useful announcements
-        and premium community content directly on Telegram.
+        Join our community to receive the latest updates, useful content
+        and important announcements directly on Telegram.
       </p>
-
-      <div class="features">
-
-        <div class="feature">
-          <span>⚡</span>
-          <b>Fast Updates</b>
-          <small>Stay informed</small>
-        </div>
-
-        <div class="feature">
-          <span>✦</span>
-          <b>VIP Content</b>
-          <small>Exclusive posts</small>
-        </div>
-
-        <div class="feature">
-          <span>✓</span>
-          <b>Easy Access</b>
-          <small>Join in one tap</small>
-        </div>
-
-      </div>
 
       <a
         class="telegram-btn"
@@ -768,20 +410,10 @@ src="https://www.facebook.com/tr?id=2235126550389139&ev=PageView&noscript=1"
         <span>Join Telegram Channel</span>
       </a>
 
-      <div class="age-notice">
-        <div class="age-icon">18+</div>
-
-        <div>
-          This community is intended only for users aged 18 years or above.
-          Please join and participate responsibly.
-        </div>
-      </div>
-
       <div class="brand">
         Designed by <strong>FLOX ADS</strong>
       </div>
-
-    </section>
+    </div>
   </main>
 </body>
 </html>
