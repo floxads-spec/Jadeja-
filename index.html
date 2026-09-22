@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Meta Pixel Code -->
+  
+  <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -18,249 +19,769 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=2235126550389139&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+  
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#070707">
-  <title>Earn With Jadeja</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#100518">
+
+  <title>Earn With Jandeja</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{width:100%;min-height:100%;font-family:'Poppins',sans-serif;background:#050505;color:#fff}
-    body{overflow-x:hidden}
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    .jadeja-page{
+  <style>
+    :root{
+      --pink:#ff3c9d;
+      --pink-light:#ff9dce;
+      --purple:#9b5cff;
+      --gold:#ffd166;
+      --white:#fff9fc;
+      --muted:rgba(255,255,255,.69);
+      --line:rgba(255,255,255,.13);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html,
+    body{
+      width:100%;
+      min-height:100%;
+      background:#100518;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      overflow-x:hidden;
+    }
+
+    a{
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .jandeja-page{
       position:relative;
+      isolation:isolate;
+      width:100%;
       min-height:100svh;
+      padding:32px 18px;
       display:flex;
       align-items:center;
       justify-content:center;
       overflow:hidden;
-      isolation:isolate;
-      padding:28px 18px;
+      color:#fff;
       background:
-        radial-gradient(circle at 15% 18%,rgba(244,197,66,.18),transparent 28%),
-        radial-gradient(circle at 86% 78%,rgba(255,123,0,.13),transparent 31%),
-        linear-gradient(135deg,#050505 0%,#101010 48%,#050505 100%);
-    }
-
-    .jadeja-page::before{
-      content:"";
-      position:absolute;
-      inset:-50%;
-      z-index:-3;
-      background:repeating-linear-gradient(115deg,transparent 0 72px,rgba(244,197,66,.045) 73px 74px);
-      animation:moveGrid 18s linear infinite;
+        radial-gradient(
+          circle at 12% 18%,
+          rgba(255,60,157,.34),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 88% 78%,
+          rgba(155,92,255,.31),
+          transparent 36%
+        ),
+        linear-gradient(
+          140deg,
+          #0a020d 0%,
+          #210820 48%,
+          #0d071d 100%
+        );
     }
 
     .glow{
       position:absolute;
-      width:340px;
-      height:340px;
+      z-index:-3;
+      width:430px;
+      height:430px;
       border-radius:50%;
       filter:blur(90px);
-      opacity:.22;
-      z-index:-2;
-      animation:floatGlow 8s ease-in-out infinite alternate;
+      opacity:.3;
+      pointer-events:none;
+      animation:glowMove 10s ease-in-out infinite alternate;
     }
-    .glow.one{background:#f4c542;top:-140px;left:-100px}
-    .glow.two{background:#ff7300;right:-120px;bottom:-160px;animation-delay:-3s}
 
-    #particles{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none}
+    .glow-one{
+      top:-190px;
+      left:-150px;
+      background:var(--pink);
+    }
+
+    .glow-two{
+      right:-170px;
+      bottom:-190px;
+      background:var(--purple);
+      animation-delay:-4s;
+    }
+
+    .grid{
+      position:absolute;
+      z-index:-2;
+      inset:-50%;
+      width:200%;
+      height:200%;
+      opacity:.12;
+      pointer-events:none;
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,.14) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.14) 1px,
+          transparent 1px
+        );
+      background-size:52px 52px;
+      transform:perspective(540px) rotateX(58deg);
+      animation:gridMove 13s linear infinite;
+    }
+
     .particle{
       position:absolute;
-      bottom:-30px;
-      width:5px;
-      height:5px;
+      bottom:-18px;
+      width:6px;
+      height:6px;
       border-radius:50%;
-      background:#f4c542;
-      box-shadow:0 0 14px #f4c542;
+      background:#fff;
+      box-shadow:0 0 15px var(--pink-light);
       opacity:0;
-      animation:rise linear infinite;
+      pointer-events:none;
+      animation:particleUp 7s linear infinite;
     }
+
+    .p1{left:10%}
+    .p2{left:31%;animation-delay:2s}
+    .p3{left:67%;animation-delay:4s}
+    .p4{left:89%;animation-delay:1s}
 
     .card{
-      width:min(100%,970px);
-      display:grid;
-      grid-template-columns:.88fr 1.12fr;
+      position:relative;
+      z-index:4;
+      width:min(100%,720px);
+      padding:42px 35px 30px;
       overflow:hidden;
-      border:1px solid rgba(244,197,66,.25);
-      border-radius:28px;
-      background:rgba(12,12,12,.76);
-      box-shadow:0 28px 90px rgba(0,0,0,.58),0 0 45px rgba(244,197,66,.08);
-      backdrop-filter:blur(18px);
-      -webkit-backdrop-filter:blur(18px);
-      animation:cardIn .85s ease both;
+      border:1px solid var(--line);
+      border-radius:34px;
+      text-align:center;
+      background:rgba(25,8,29,.74);
+      box-shadow:
+        0 35px 100px rgba(0,0,0,.48),
+        inset 0 1px rgba(255,255,255,.08);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      animation:cardEntry .9s ease-out both;
     }
 
-    .visual{
-      position:relative;
-      min-height:540px;
-      padding:30px;
-      display:flex;
-      align-items:flex-end;
-      justify-content:center;
-      background:#111;
-    }
-    .visual::after{
+    .card::before{
       content:"";
       position:absolute;
-      inset:0;
-      background:linear-gradient(to top,rgba(0,0,0,.94) 0%,rgba(0,0,0,.1) 58%,rgba(0,0,0,.3) 100%);
+      top:0;
+      left:12%;
+      right:12%;
+      height:3px;
+      background:linear-gradient(
+        90deg,
+        transparent,
+        var(--pink),
+        var(--purple),
+        transparent
+      );
+      box-shadow:0 0 22px rgba(255,60,157,.45);
     }
-    .model-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-    .photo-badge{
+
+    .profile-wrap{
+      position:relative;
+      width:145px;
+      height:145px;
+      margin:0 auto 25px;
+      padding:5px;
+      border-radius:50%;
+      background:conic-gradient(
+        from 20deg,
+        var(--gold),
+        var(--pink),
+        var(--purple),
+        #fff,
+        var(--gold)
+      );
+      box-shadow:
+        0 0 0 10px rgba(255,255,255,.035),
+        0 0 55px rgba(255,60,157,.38);
+      animation:profileFloat 3.5s ease-in-out infinite;
+    }
+
+    .profile-wrap::after{
+      content:"";
+      position:absolute;
+      inset:-14px;
+      border:1px solid rgba(255,157,206,.32);
+      border-radius:50%;
+      animation:profilePulse 2.3s ease-out infinite;
+    }
+
+    .profile-photo{
       position:relative;
       z-index:2;
-      display:flex;
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      object-position:center top;
+      border:5px solid #180817;
+      border-radius:50%;
+      background:#180817;
+    }
+
+    .online-dot{
+      position:absolute;
+      z-index:4;
+      right:8px;
+      bottom:10px;
+      width:21px;
+      height:21px;
+      border:4px solid #180817;
+      border-radius:50%;
+      background:#52f59b;
+      box-shadow:0 0 15px #52f59b;
+    }
+
+    .badge{
+      margin-bottom:16px;
+      padding:8px 15px;
+      display:inline-flex;
       align-items:center;
-      gap:10px;
-      padding:10px 16px;
-      border:1px solid rgba(244,197,66,.38);
+      gap:8px;
+      border:1px solid rgba(255,157,206,.28);
       border-radius:999px;
-      background:rgba(0,0,0,.62);
-      color:#f8df8a;
-      font-size:12px;
-      font-weight:600;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      backdrop-filter:blur(10px);
-    }
-    .photo-badge i{width:8px;height:8px;border-radius:50%;background:#47e38a;box-shadow:0 0 10px #47e38a}
-
-    .content{padding:58px 54px;display:flex;flex-direction:column;justify-content:center}
-    .mini-label{
-      width:max-content;
-      margin-bottom:20px;
-      padding:8px 14px;
-      border:1px solid rgba(244,197,66,.48);
-      border-radius:999px;
-      color:#f4c542;
-      font-size:11px;
-      font-weight:600;
-      letter-spacing:1.4px;
+      color:#ffd8ea;
+      background:rgba(255,60,157,.07);
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:1.3px;
       text-transform:uppercase;
     }
-    h1{font-size:clamp(38px,5.2vw,68px);line-height:1.03;letter-spacing:-2px;font-weight:800}
-    h1 span{display:block;color:#f4c542;text-shadow:0 0 30px rgba(244,197,66,.22)}
-    .description{max-width:520px;margin:20px 0 27px;color:#bdbdbd;font-size:15px;line-height:1.75}
-    .points{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
-    .point{padding:8px 12px;border-radius:9px;background:#151515;border:1px solid #272727;color:#ddd;font-size:12px}
-    .point::before{content:"✓";margin-right:7px;color:#f4c542;font-weight:800}
 
-    .cta{
+    .badge i{
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--pink-light);
+      box-shadow:0 0 12px var(--pink);
+      animation:blink 1.25s ease-in-out infinite;
+    }
+
+    h1{
+      margin:0 0 16px;
+      font-size:clamp(43px,8vw,74px);
+      line-height:.98;
+      font-weight:900;
+      letter-spacing:-3.4px;
+      text-transform:uppercase;
+      text-shadow:0 9px 32px rgba(0,0,0,.5);
+    }
+
+    h1 span{
+      display:block;
+      color:transparent;
+      background:linear-gradient(
+        90deg,
+        #fff 0%,
+        #ffadd4 38%,
+        #ff3c9d 68%,
+        #c695ff 100%
+      );
+      background-clip:text;
+      -webkit-background-clip:text;
+    }
+
+    .description{
+      max-width:560px;
+      margin:0 auto 25px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .features{
+      max-width:560px;
+      margin:0 auto 27px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:9px;
+    }
+
+    .feature{
+      padding:12px 8px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:13px;
+      background:rgba(255,255,255,.03);
+      transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+    }
+
+    .feature:hover{
+      transform:translateY(-3px);
+      border-color:rgba(255,60,157,.34);
+      background:rgba(255,60,157,.06);
+    }
+
+    .feature span{
+      display:block;
+      margin-bottom:5px;
+      color:var(--pink-light);
+      font-size:17px;
+    }
+
+    .feature b{
+      display:block;
+      font-size:9px;
+    }
+
+    .feature small{
+      display:block;
+      margin-top:2px;
+      color:rgba(255,255,255,.44);
+      font-size:7px;
+    }
+
+    .telegram-btn{
       position:relative;
+      width:min(100%,390px);
+      min-height:60px;
+      padding:16px 22px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:11px;
-      width:100%;
-      min-height:58px;
-      padding:14px 24px;
       overflow:hidden;
-      border:1px solid #f4c542;
+      border:1px solid rgba(255,255,255,.5);
       border-radius:999px;
-      background:linear-gradient(100deg,#f4c542,#ffd96a,#e5ae20);
-      box-shadow:0 12px 35px rgba(244,197,66,.24);
-      color:#111;
-      font-size:15px;
-      font-weight:800;
-      letter-spacing:.7px;
+      color:#fff;
+      background:linear-gradient(
+        100deg,
+        #ff187f 0%,
+        #ff4aa4 48%,
+        #9256ed 100%
+      );
+      box-shadow:
+        0 18px 48px rgba(255,24,127,.34),
+        inset 0 1px rgba(255,255,255,.35);
       text-decoration:none;
       text-transform:uppercase;
-      transition:transform .25s ease,box-shadow .25s ease;
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.55px;
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        filter .3s ease;
     }
-    .cta::before{content:"";position:absolute;top:-50%;left:-90%;width:48%;height:200%;background:rgba(255,255,255,.55);transform:rotate(25deg);animation:shine 3.2s ease-in-out infinite}
-    .cta:hover{transform:translateY(-3px) scale(1.015);box-shadow:0 17px 42px rgba(244,197,66,.38)}
-    .cta svg{width:22px;height:22px;fill:currentColor}
 
-    .notice{display:flex;align-items:flex-start;gap:10px;margin-top:19px;color:#888;font-size:11px;line-height:1.55}
-    .notice strong{color:#f4c542;white-space:nowrap}
-    .brand{margin-top:30px;text-align:center;color:#686868;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase}
-    .brand span{color:#f4c542}
+    .telegram-btn::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:-120%;
+      width:58%;
+      height:100%;
+      transform:skewX(-24deg);
+      background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.5),
+        transparent
+      );
+      animation:shine 3.2s ease-in-out infinite;
+    }
 
-    @keyframes moveGrid{to{transform:translate3d(110px,70px,0)}}
-    @keyframes floatGlow{to{transform:translate(70px,50px) scale(1.18)}}
-    @keyframes cardIn{from{opacity:0;transform:translateY(24px) scale(.985)}to{opacity:1;transform:none}}
-    @keyframes rise{0%{transform:translateY(0) scale(.6);opacity:0}15%{opacity:.65}85%{opacity:.35}100%{transform:translateY(-110vh) scale(1.1);opacity:0}}
-    @keyframes shine{0%,55%{left:-90%}80%,100%{left:140%}}
+    .telegram-btn:hover{
+      transform:translateY(-4px) scale(1.02);
+      filter:saturate(1.12);
+      box-shadow:
+        0 25px 58px rgba(255,24,127,.48),
+        0 0 28px rgba(155,92,255,.18);
+    }
 
-    @media(max-width:760px){
-      .jadeja-page{padding:16px 12px;align-items:flex-start}
-      .card{grid-template-columns:1fr;border-radius:22px;max-width:480px}
-      .visual{min-height:285px;padding:20px}
-      .model-photo{object-position:center 28%}
-      .content{padding:32px 22px 27px;text-align:center;align-items:center}
-      .mini-label{margin-bottom:15px}
-      h1{font-size:clamp(35px,11vw,49px);letter-spacing:-1.5px}
-      .description{margin:16px 0 21px;font-size:13px;line-height:1.65}
-      .points{justify-content:center;margin-bottom:22px;gap:8px}
-      .point{font-size:10px;padding:7px 9px}
-      .cta{min-height:54px;font-size:13px;padding:13px 18px}
-      .notice{text-align:left;font-size:10px;margin-top:16px}
-      .brand{margin-top:23px}
+    .telegram-btn:active{
+      transform:scale(.97);
+    }
+
+    .telegram-btn svg,
+    .telegram-btn span{
+      position:relative;
+      z-index:2;
+    }
+
+    .telegram-btn svg{
+      width:22px;
+      height:22px;
+      flex:none;
+    }
+
+    .age-notice{
+      max-width:500px;
+      margin:21px auto 0;
+      padding:10px 13px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      border:1px solid rgba(255,157,206,.14);
+      border-radius:13px;
+      color:rgba(255,255,255,.56);
+      background:rgba(255,255,255,.03);
+      font-size:9px;
+      line-height:1.5;
+    }
+
+    .age-icon{
+      width:33px;
+      height:33px;
+      flex:none;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(255,157,206,.45);
+      border-radius:50%;
+      color:#ffd6e9;
+      background:rgba(255,60,157,.07);
+      font-size:9px;
+      font-weight:900;
+    }
+
+    .brand{
+      margin-top:23px;
+      color:rgba(255,255,255,.38);
+      font-size:9px;
+      font-weight:600;
+      letter-spacing:2.4px;
+      text-transform:uppercase;
+    }
+
+    .brand strong{
+      color:var(--pink-light);
+      font-weight:900;
+    }
+
+    @keyframes cardEntry{
+      from{
+        opacity:0;
+        transform:translateY(25px) scale(.985);
+      }
+
+      to{
+        opacity:1;
+        transform:none;
+      }
+    }
+
+    @keyframes glowMove{
+      to{
+        transform:translate(65px,50px) scale(1.2);
+      }
+    }
+
+    @keyframes gridMove{
+      to{
+        background-position:0 104px;
+      }
+    }
+
+    @keyframes particleUp{
+      0%{
+        transform:translateY(0) scale(.4);
+        opacity:0;
+      }
+
+      20%{
+        opacity:.7;
+      }
+
+      100%{
+        transform:translateY(-110vh) scale(1.3);
+        opacity:0;
+      }
+    }
+
+    @keyframes profileFloat{
+      0%,100%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(-9px);
+      }
+    }
+
+    @keyframes profilePulse{
+      from{
+        transform:scale(.92);
+        opacity:.85;
+      }
+
+      to{
+        transform:scale(1.18);
+        opacity:0;
+      }
+    }
+
+    @keyframes blink{
+      50%{
+        opacity:.3;
+      }
+    }
+
+    @keyframes shine{
+      0%,36%{
+        left:-120%;
+      }
+
+      72%,100%{
+        left:155%;
+      }
+    }
+
+    @media(max-width:600px){
+      .jandeja-page{
+        padding:20px 12px;
+      }
+
+      .card{
+        padding:31px 16px 23px;
+        border-radius:27px;
+      }
+
+      .profile-wrap{
+        width:116px;
+        height:116px;
+        margin-bottom:21px;
+      }
+
+      .badge{
+        margin-bottom:13px;
+        padding:7px 12px;
+        font-size:8px;
+        letter-spacing:1px;
+      }
+
+      h1{
+        margin-bottom:13px;
+        font-size:clamp(36px,12vw,50px);
+        line-height:1;
+        letter-spacing:-2px;
+      }
+
+      .description{
+        margin-bottom:20px;
+        font-size:11.5px;
+        line-height:1.65;
+      }
+
+      .features{
+        margin-bottom:21px;
+        gap:6px;
+      }
+
+      .feature{
+        padding:10px 5px;
+        border-radius:10px;
+      }
+
+      .feature span{
+        font-size:14px;
+      }
+
+      .feature b{
+        font-size:7.5px;
+      }
+
+      .feature small{
+        font-size:6px;
+      }
+
+      .telegram-btn{
+        width:100%;
+        min-height:55px;
+        padding:15px 16px;
+        font-size:11px;
+      }
+
+      .age-notice{
+        margin-top:17px;
+        padding:9px 10px;
+        font-size:7.5px;
+        text-align:left;
+      }
+
+      .brand{
+        margin-top:18px;
+        font-size:8px;
+      }
+
+      .grid{
+        background-size:42px 42px;
+      }
     }
 
     @media(max-width:360px){
-      .visual{min-height:245px}
-      .content{padding-left:17px;padding-right:17px}
-      h1{font-size:34px}
+      .features{
+        grid-template-columns:1fr;
+      }
+
+      .feature{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:8px;
+      }
+
+      .feature span{
+        margin:0;
+      }
+
+      .feature small{
+        display:none;
+      }
+    }
+
+    @media(max-height:690px){
+      .jandeja-page{
+        padding-top:14px;
+        padding-bottom:14px;
+      }
+
+      .card{
+        padding-top:24px;
+        padding-bottom:19px;
+      }
+
+      .profile-wrap{
+        width:98px;
+        height:98px;
+        margin-bottom:15px;
+      }
+
+      .description{
+        margin-bottom:16px;
+      }
+
+      .features{
+        margin-bottom:17px;
+      }
+
+      .age-notice{
+        margin-top:14px;
+      }
+
+      .brand{
+        margin-top:14px;
+      }
     }
 
     @media(prefers-reduced-motion:reduce){
-      *,*::before,*::after{animation:none!important;scroll-behavior:auto!important}
+      *,
+      *::before,
+      *::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+      }
     }
   </style>
 </head>
-<body>
-  <main class="jadeja-page">
-    <div class="glow one"></div>
-    <div class="glow two"></div>
-    <div id="particles" aria-hidden="true"></div>
 
-    <section class="card" aria-label="Earn With Jadeja community">
-      <div class="visual">
-        <img class="model-photo" src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Adult woman portrait" loading="eager">
-        <div class="photo-badge"><i></i> Community is live</div>
+<body>
+  <main class="jandeja-page">
+
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+    <div class="grid"></div>
+
+    <span class="particle p1"></span>
+    <span class="particle p2"></span>
+    <span class="particle p3"></span>
+    <span class="particle p4"></span>
+
+    <section class="card">
+
+      <div class="profile-wrap">
+        <img
+          class="profile-photo"
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=88"
+          alt="Earn With Jandeja profile logo">
+
+        <span class="online-dot"></span>
       </div>
 
-      <div class="content">
-        <div class="mini-label">Exclusive 18+ Community</div>
-        <h1>EARN WITH <span>JADEJA</span></h1>
-        <p class="description">Join the private Telegram community for regular updates, useful insights and exclusive content—all in one place.</p>
+      <div class="badge">
+        <i></i>
+        Official Telegram Community
+      </div>
 
-        <div class="points">
-          <div class="point">Daily Updates</div>
-          <div class="point">Private Community</div>
-          <div class="point">Instant Access</div>
+      <h1>
+        Earn With
+        <span>Jandeja</span>
+      </h1>
+
+      <p class="description">
+        Join our growing community for exclusive updates, useful announcements
+        and premium community content directly on Telegram.
+      </p>
+
+      <div class="features">
+
+        <div class="feature">
+          <span>⚡</span>
+          <b>Fast Updates</b>
+          <small>Stay informed</small>
         </div>
 
-        <a class="cta" href="https://t.me/+nSoQ_FUlmz80YzM1" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.7 3.3a1.55 1.55 0 0 0-1.61-.27L2.96 9.64a1.44 1.44 0 0 0 .09 2.72l4.37 1.45 1.67 5.16a1.24 1.24 0 0 0 2.1.47l2.43-2.49 4.52 3.32a1.54 1.54 0 0 0 2.43-.93l1.86-14.6a1.56 1.56 0 0 0-.73-1.44ZM9.33 13.05l8.55-5.3-6.74 6.95-.75 2.62-1.06-4.27Z"/></svg>
-          Join Telegram Channel
-        </a>
+        <div class="feature">
+          <span>✦</span>
+          <b>VIP Content</b>
+          <small>Exclusive posts</small>
+        </div>
 
-        <div class="notice"><strong>18+ ONLY</strong><span>This community is intended only for adults. No income or result is guaranteed; always make informed decisions.</span></div>
-        <div class="brand">Powered by <span>FLOX ADS</span></div>
+        <div class="feature">
+          <span>✓</span>
+          <b>Easy Access</b>
+          <small>Join in one tap</small>
+        </div>
+
       </div>
+
+      <a
+        class="telegram-btn"
+        href="https://t.me/+nSoQ_FUlmz80YzM1"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M21.8 2.2c-.3-.2-.7-.3-1.1-.1L2.1 9.3c-.7.3-.8 1.2-.1 1.6l4.7 2.3 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.5 4.8 3.5c.6.4 1.4.1 1.5-.6l3.1-16.4c.1-.4 0-.8-.3-1ZM9.3 13.5l8.4-7.4-6.5 8.3-.5 2.5-1.4-3.4Z"/>
+        </svg>
+
+        <span>Join Telegram Channel</span>
+      </a>
+
+      <div class="age-notice">
+        <div class="age-icon">18+</div>
+
+        <div>
+          This community is intended only for users aged 18 years or above.
+          Please join and participate responsibly.
+        </div>
+      </div>
+
+      <div class="brand">
+        Designed by <strong>FLOX ADS</strong>
+      </div>
+
     </section>
   </main>
-
-  <script>
-    (function(){
-      var box=document.getElementById('particles');
-      if(!box || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      for(var i=0;i<26;i++){
-        var dot=document.createElement('span');
-        dot.className='particle';
-        dot.style.left=(Math.random()*100)+'%';
-        dot.style.animationDuration=(7+Math.random()*9)+'s';
-        dot.style.animationDelay=(-Math.random()*14)+'s';
-        dot.style.transform='scale('+(0.5+Math.random()*1.2)+')';
-        box.appendChild(dot);
-      }
-    })();
-  </script>
 </body>
 </html>
