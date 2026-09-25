@@ -1,494 +1,565 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2235126550389139');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2235126550389139&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#050507">
-  <title>Earn With Jandeja</title>
-
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2235126550389139');
-  fbq('track', 'PageView');
-  </script>
-  <!-- End Meta Pixel Code -->
+  <meta name="theme-color" content="#070706">
+  <meta name="description" content="Join the official JADJA Telegram community.">
+  <title>JADJA — Official Community</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --black: #070706;
+      --panel: #10100e;
+      --gold: #f4c542;
+      --gold-light: #fff2a6;
+      --gold-dark: #c88f12;
+      --white: #ffffff;
+      --muted: #aaa79e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     html,
     body {
       width: 100%;
       min-height: 100%;
       margin: 0;
-      background: #050507;
     }
 
     body {
       overflow-x: hidden;
+      color: var(--white);
+      background: var(--black);
+      font-family: "Poppins", Arial, sans-serif;
     }
 
-    .ewj-page,
-    .ewj-page * {
-      box-sizing: border-box;
-    }
-
-    .ewj-page {
+    .jadja-page {
       position: relative;
       isolation: isolate;
       width: 100%;
       min-height: 100vh;
       min-height: 100svh;
-      padding: 35px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow-x: hidden;
-      overflow-y: auto;
-      color: #fff;
+      padding: clamp(18px, 3vw, 38px);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
       background:
-        radial-gradient(circle at 15% 20%, rgba(226, 0, 27, .35), transparent 34%),
-        radial-gradient(circle at 85% 75%, rgba(0, 99, 255, .30), transparent 36%),
-        linear-gradient(135deg, #050507 0%, #10030a 45%, #020916 100%);
-      font-family: 'Poppins', Arial, sans-serif;
-      line-height: 1.5;
+        radial-gradient(circle at 12% 15%, rgba(244,197,66,.13), transparent 28%),
+        radial-gradient(circle at 90% 86%, rgba(244,197,66,.09), transparent 30%),
+        linear-gradient(145deg, #050504, #0c0b08 52%, #050504);
     }
 
-    .ewj-light,
-    .ewj-grid,
-    .ewj-particle {
+    .jadja-noise {
       position: absolute;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .ewj-light {
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      filter: blur(80px);
+      inset: 0;
+      z-index: -5;
       opacity: .32;
-      animation: ewj-move-light 10s ease-in-out infinite alternate;
-    }
-
-    .ewj-light--red {
-      top: -180px;
-      left: -130px;
-      background: #ff001e;
-    }
-
-    .ewj-light--blue {
-      right: -160px;
-      bottom: -180px;
-      background: #006eff;
-      animation-delay: -4s;
-    }
-
-    .ewj-grid {
-      inset: -50%;
-      width: 200%;
-      height: 200%;
-      opacity: .15;
+      pointer-events: none;
       background-image:
-        linear-gradient(rgba(255, 255, 255, .14) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, .14) 1px, transparent 1px);
-      background-size: 55px 55px;
-      transform: perspective(500px) rotateX(55deg);
-      animation: ewj-move-grid 12s linear infinite;
+        linear-gradient(rgba(244,197,66,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244,197,66,.04) 1px, transparent 1px);
+      background-size: 54px 54px;
+      animation: jadja-grid 16s linear infinite;
     }
 
-    .ewj-particle {
-      bottom: -20px;
-      width: 6px;
-      height: 6px;
+    .jadja-glow {
+      position: absolute;
+      z-index: -4;
+      width: min(70vw, 850px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(244,197,66,.1);
       border-radius: 50%;
-      background: #fff;
-      box-shadow: 0 0 16px #fff;
-      opacity: 0;
-      animation: ewj-float-particle 7s linear infinite;
-    }
-
-    .ewj-particle--1 {
-      left: 12%;
-    }
-
-    .ewj-particle--2 {
-      left: 30%;
-      animation-delay: 2s;
-    }
-
-    .ewj-particle--3 {
-      left: 68%;
-      animation-delay: 4s;
-    }
-
-    .ewj-particle--4 {
-      left: 88%;
-      animation-delay: 1s;
-    }
-
-    .ewj-content {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 720px;
-      margin: auto;
-      text-align: center;
-      animation: ewj-content-entry .9s ease-out both;
-    }
-
-    .ewj-logo {
-      position: relative;
-      width: 138px;
-      height: 138px;
-      margin: 0 auto 27px;
-      padding: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 4px solid rgba(255, 255, 255, .92);
-      border-radius: 50%;
-      background: linear-gradient(145deg, #f90027, #005bd7);
       box-shadow:
-        0 0 0 9px rgba(226, 0, 27, .16),
-        0 0 48px rgba(255, 0, 38, .6);
-      animation: ewj-logo-float 3s ease-in-out infinite;
+        0 0 100px rgba(244,197,66,.08),
+        inset 0 0 100px rgba(244,197,66,.04);
+      animation: jadja-breathe 5s ease-in-out infinite;
     }
 
-    .ewj-logo::after {
-      content: "";
+    .jadja-shell {
+      position: relative;
+      width: min(1140px, 100%);
+      min-height: min(720px, calc(100svh - 76px));
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      overflow: hidden;
+      border: 1px solid rgba(244,197,66,.3);
+      border-radius: 30px;
+      background: rgba(16,16,14,.84);
+      box-shadow:
+        0 30px 90px rgba(0,0,0,.7),
+        inset 0 1px rgba(255,255,255,.05);
+      backdrop-filter: blur(18px);
+      animation: jadja-entry .8s ease both;
+    }
+
+    .jadja-art {
+      position: relative;
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border-right: 1px solid rgba(244,197,66,.2);
+      background:
+        radial-gradient(circle at center, rgba(244,197,66,.16), transparent 55%),
+        #0b0b09;
+    }
+
+    .jadja-ring,
+    .jadja-ring::before,
+    .jadja-ring::after {
       position: absolute;
-      inset: -13px;
-      border: 1px solid rgba(255, 255, 255, .25);
+      border: 1px solid rgba(244,197,66,.36);
       border-radius: 50%;
-      animation: ewj-logo-pulse 2s ease-out infinite;
     }
 
-    .ewj-logo img {
+    .jadja-ring {
+      width: 330px;
+      height: 330px;
+      animation: jadja-spin 18s linear infinite;
+    }
+
+    .jadja-ring::before,
+    .jadja-ring::after {
+      content: "";
+      inset: 34px;
+      border-style: dashed;
+    }
+
+    .jadja-ring::after {
+      inset: 72px;
+      border-style: solid;
+      border-color: rgba(244,197,66,.17);
+    }
+
+    .jadja-mark {
       position: relative;
       z-index: 2;
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 50%;
-      background: #111;
+      width: 178px;
+      height: 178px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--gold);
+      border-radius: 42px;
+      color: var(--gold);
+      background: linear-gradient(145deg, #17150e, #080807);
+      box-shadow:
+        0 0 0 10px rgba(244,197,66,.06),
+        0 0 70px rgba(244,197,66,.22);
+      font-size: 106px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -8px;
+      transform: rotate(-8deg);
+      animation: jadja-mark 4s ease-in-out infinite;
     }
 
-    .ewj-online-dot {
+    .jadja-mark span {
+      transform: translateX(-4px);
+    }
+
+    .jadja-vertical {
       position: absolute;
-      z-index: 4;
-      right: 7px;
-      bottom: 9px;
-      width: 20px;
-      height: 20px;
-      border: 4px solid #10030a;
-      border-radius: 50%;
-      background: #55f29a;
-      box-shadow: 0 0 14px #55f29a;
-    }
-
-    .ewj-label {
-      margin-bottom: 17px;
-      padding: 8px 17px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(255, 255, 255, .22);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .07);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
+      left: 24px;
+      bottom: 24px;
+      color: rgba(255,255,255,.34);
       font-size: 12px;
       font-weight: 600;
-      letter-spacing: 1.5px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    .jadja-copy {
+      position: relative;
+      padding: clamp(44px, 7vw, 92px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .jadja-eyebrow {
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
       text-transform: uppercase;
     }
 
-    .ewj-label-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #ff1238;
-      box-shadow: 0 0 12px #ff1238;
-      animation: ewj-blink 1.2s ease-in-out infinite;
+    .jadja-eyebrow::before {
+      content: "";
+      width: 38px;
+      height: 2px;
+      background: var(--gold);
+      box-shadow: 0 0 12px rgba(244,197,66,.65);
     }
 
-    .ewj-title {
+    .jadja-title {
       margin: 0;
-      color: #fff;
-      font-size: clamp(42px, 8vw, 80px);
-      line-height: 1.03;
+      font-size: clamp(64px, 10vw, 130px);
+      line-height: .88;
       font-weight: 900;
-      letter-spacing: -3px;
+      letter-spacing: -7px;
       text-transform: uppercase;
-      text-shadow: 0 7px 30px rgba(0, 0, 0, .55);
     }
 
-    .ewj-title span {
-      display: block;
+    .jadja-title span {
       color: transparent;
-      background: linear-gradient(90deg, #ff163c, #fff 48%, #1681ff);
+      background: linear-gradient(
+        110deg,
+        var(--gold-dark),
+        var(--gold-light) 46%,
+        var(--gold) 72%,
+        #b77908
+      );
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 10px 25px rgba(244,197,66,.13));
     }
 
-    .ewj-description {
+    .jadja-description {
       max-width: 570px;
-      margin: 19px auto 30px;
-      color: rgba(255, 255, 255, .76);
+      margin: 28px 0 0;
+      color: var(--muted);
       font-size: 16px;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
-    .ewj-telegram-btn {
+    .jadja-features {
+      margin-top: 24px;
+      display: flex;
+      gap: 11px;
+      flex-wrap: wrap;
+    }
+
+    .jadja-feature {
+      padding: 8px 13px;
+      border: 1px solid rgba(244,197,66,.2);
+      border-radius: 999px;
+      color: #d1cec5;
+      background: rgba(244,197,66,.045);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .jadja-cta {
       position: relative;
-      min-width: 250px;
-      padding: 17px 29px;
+      width: fit-content;
+      margin-top: 34px;
+      padding: 16px 26px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 11px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, .7);
+      border: 1px solid var(--gold);
       border-radius: 999px;
-      color: #fff;
-      background: linear-gradient(90deg, #e80024, #b5003e, #005fd3);
-      box-shadow:
-        0 12px 35px rgba(224, 0, 33, .38),
-        inset 0 1px rgba(255, 255, 255, .3);
+      color: #0b0a07;
+      background: linear-gradient(
+        100deg,
+        #d9a719,
+        var(--gold-light),
+        var(--gold)
+      );
+      box-shadow: 0 14px 35px rgba(244,197,66,.18);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1px;
       text-decoration: none;
       text-transform: uppercase;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: .7px;
       transition: transform .3s ease, box-shadow .3s ease;
       -webkit-tap-highlight-color: transparent;
     }
 
-    .ewj-telegram-btn::before {
+    .jadja-cta::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: -120%;
-      width: 60%;
-      height: 100%;
-      transform: skewX(-25deg);
+      inset: 0;
+      transform: translateX(-120%) skewX(-20deg);
       background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, .45),
+        rgba(255,255,255,.65),
         transparent
       );
-      animation: ewj-button-shine 3s ease-in-out infinite;
+      animation: jadja-shine 3.4s ease-in-out infinite;
     }
 
-    .ewj-telegram-btn:hover,
-    .ewj-telegram-btn:focus-visible {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow:
-        0 18px 45px rgba(224, 0, 33, .55),
-        0 0 25px rgba(0, 110, 255, .23);
+    .jadja-cta:hover,
+    .jadja-cta:focus-visible {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 20px 45px rgba(244,197,66,.3);
       outline: none;
     }
 
-    .ewj-telegram-btn:active {
+    .jadja-cta:active {
       transform: scale(.97);
     }
 
-    .ewj-telegram-btn svg,
-    .ewj-telegram-btn span {
+    .jadja-cta svg,
+    .jadja-cta span {
       position: relative;
       z-index: 2;
     }
 
-    .ewj-telegram-btn svg {
+    .jadja-cta svg {
       width: 22px;
       height: 22px;
-      flex: 0 0 auto;
     }
 
-    .ewj-brand {
-      margin-top: 55px;
-      color: rgba(255, 255, 255, .5);
-      font-size: 11px;
+    .jadja-meta {
+      margin-top: 26px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #77746d;
+      font-size: 12px;
       font-weight: 600;
-      letter-spacing: 3px;
+      letter-spacing: .8px;
       text-transform: uppercase;
     }
 
-    .ewj-brand strong {
-      color: #fff;
-      font-weight: 700;
+    .jadja-meta span:first-child::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      margin-right: 8px;
+      display: inline-block;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 10px var(--gold);
+      animation: jadja-dot 1.5s ease-in-out infinite;
     }
 
-    @keyframes ewj-move-light {
-      from {
-        transform: translate(0, 0) scale(1);
-      }
+    .jadja-footer {
+      position: absolute;
+      right: 32px;
+      bottom: 24px;
+      color: #5c5953;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .jadja-footer strong {
+      color: var(--gold);
+    }
+
+    @keyframes jadja-grid {
       to {
-        transform: translate(70px, 55px) scale(1.25);
+        background-position: 54px 54px;
       }
     }
 
-    @keyframes ewj-move-grid {
-      from {
-        background-position: 0 0;
-      }
-      to {
-        background-position: 0 110px;
-      }
-    }
-
-    @keyframes ewj-float-particle {
-      0% {
-        transform: translateY(0) scale(.4);
-        opacity: 0;
-      }
-      20% {
+    @keyframes jadja-breathe {
+      50% {
+        transform: scale(1.08);
         opacity: .7;
       }
-      100% {
-        transform: translateY(-110vh) scale(1.3);
-        opacity: 0;
-      }
     }
 
-    @keyframes ewj-content-entry {
+    @keyframes jadja-entry {
       from {
         opacity: 0;
-        transform: translateY(25px);
+        transform: translateY(24px) scale(.985);
       }
+
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
       }
     }
 
-    @keyframes ewj-logo-float {
+    @keyframes jadja-spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes jadja-mark {
       0%,
       100% {
-        transform: translateY(0);
+        transform: rotate(-8deg) translateY(0);
       }
+
       50% {
-        transform: translateY(-9px);
+        transform: rotate(-5deg) translateY(-10px);
       }
     }
 
-    @keyframes ewj-logo-pulse {
-      from {
-        transform: scale(.9);
-        opacity: .8;
+    @keyframes jadja-shine {
+      0%,
+      35% {
+        transform: translateX(-120%) skewX(-20deg);
       }
-      to {
-        transform: scale(1.18);
-        opacity: 0;
+
+      70%,
+      100% {
+        transform: translateX(150%) skewX(-20deg);
       }
     }
 
-    @keyframes ewj-blink {
+    @keyframes jadja-dot {
       50% {
         opacity: .35;
       }
     }
 
-    @keyframes ewj-button-shine {
-      0%,
-      35% {
-        left: -120%;
-      }
-      70%,
-      100% {
-        left: 150%;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .ewj-page {
-        padding: 28px 16px;
+    @media (max-width: 820px) {
+      .jadja-page {
+        display: block;
+        min-height: 100svh;
+        padding: 16px;
+        overflow-y: auto;
       }
 
-      .ewj-logo {
-        width: 112px;
-        height: 112px;
-        margin-bottom: 23px;
+      .jadja-shell {
+        min-height: 0;
+        grid-template-columns: 1fr;
+        border-radius: 24px;
       }
 
-      .ewj-label {
-        margin-bottom: 15px;
-        padding: 7px 13px;
+      .jadja-art {
+        min-height: 280px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(244,197,66,.2);
+      }
+
+      .jadja-ring {
+        width: 240px;
+        height: 240px;
+      }
+
+      .jadja-mark {
+        width: 132px;
+        height: 132px;
+        border-radius: 32px;
+        font-size: 82px;
+      }
+
+      .jadja-vertical {
+        left: 16px;
+        bottom: 16px;
         font-size: 10px;
-        letter-spacing: 1.1px;
       }
 
-      .ewj-title {
-        font-size: clamp(38px, 13vw, 58px);
-        line-height: 1.02;
-        letter-spacing: -2px;
+      .jadja-copy {
+        padding: 45px 26px 68px;
+        align-items: center;
+        text-align: center;
       }
 
-      .ewj-description {
-        margin: 16px auto 25px;
-        font-size: 14px;
-        line-height: 1.65;
-      }
-
-      .ewj-telegram-btn {
-        width: 100%;
-        max-width: 320px;
-        min-width: 0;
-        padding: 16px 22px;
-        font-size: 13px;
-      }
-
-      .ewj-brand {
-        margin-top: 43px;
-      }
-
-      .ewj-grid {
-        background-size: 42px 42px;
-      }
-    }
-
-    @media (max-height: 650px) {
-      .ewj-page {
-        align-items: flex-start;
-        padding-top: 16px;
-        padding-bottom: 16px;
-      }
-
-      .ewj-logo {
-        width: 96px;
-        height: 96px;
-        margin-bottom: 17px;
-      }
-
-      .ewj-description {
-        margin-top: 13px;
+      .jadja-eyebrow {
         margin-bottom: 20px;
       }
 
-      .ewj-brand {
-        margin-top: 28px;
+      .jadja-title {
+        font-size: clamp(58px, 17vw, 92px);
+        letter-spacing: -5px;
+      }
+
+      .jadja-description {
+        margin-top: 22px;
+      }
+
+      .jadja-features {
+        justify-content: center;
+      }
+
+      .jadja-cta {
+        width: min(100%, 340px);
+      }
+
+      .jadja-meta {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .jadja-footer {
+        right: 0;
+        left: 0;
+        bottom: 22px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .jadja-page {
+        padding: 10px;
+      }
+
+      .jadja-art {
+        min-height: 240px;
+      }
+
+      .jadja-ring {
+        width: 205px;
+        height: 205px;
+      }
+
+      .jadja-mark {
+        width: 112px;
+        height: 112px;
+        font-size: 70px;
+      }
+
+      .jadja-copy {
+        padding: 38px 19px 68px;
+      }
+
+      .jadja-title {
+        font-size: clamp(52px, 18vw, 74px);
+      }
+
+      .jadja-description {
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      .jadja-cta {
+        padding: 15px 18px;
+        font-size: 13px;
+      }
+
+      .jadja-meta {
+        gap: 10px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .ewj-page *,
-      .ewj-page *::before,
-      .ewj-page *::after {
+      .jadja-page *,
+      .jadja-page *::before,
+      .jadja-page *::after {
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
       }
@@ -497,66 +568,66 @@
 </head>
 
 <body>
-  <!-- Meta Pixel fallback -->
-  <noscript>
-    <img
-      height="1"
-      width="1"
-      style="display:none"
-      src="https://www.facebook.com/tr?id=2235126550389139&amp;ev=PageView&amp;noscript=1"
-      alt="">
-  </noscript>
+  <main class="jadja-page">
+    <div class="jadja-noise" aria-hidden="true"></div>
+    <div class="jadja-glow" aria-hidden="true"></div>
 
-  <main class="ewj-page">
-    <div class="ewj-light ewj-light--red" aria-hidden="true"></div>
-    <div class="ewj-light ewj-light--blue" aria-hidden="true"></div>
-    <div class="ewj-grid" aria-hidden="true"></div>
+    <section class="jadja-shell" aria-labelledby="jadja-title">
+      <div class="jadja-art" aria-hidden="true">
+        <div class="jadja-ring"></div>
 
-    <span class="ewj-particle ewj-particle--1" aria-hidden="true"></span>
-    <span class="ewj-particle ewj-particle--2" aria-hidden="true"></span>
-    <span class="ewj-particle ewj-particle--3" aria-hidden="true"></span>
-    <span class="ewj-particle ewj-particle--4" aria-hidden="true"></span>
+        <div class="jadja-mark">
+          <span>J</span>
+        </div>
 
-    <div class="ewj-content">
-      <div class="ewj-logo" aria-label="Earn With Jandeja logo">
-        <img
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=600&amp;q=88"
-          alt="Earn With Jandeja profile">
-        <span class="ewj-online-dot" aria-hidden="true"></span>
+        <div class="jadja-vertical">
+          Official Community
+        </div>
       </div>
 
-      <div class="ewj-label">
-        <span class="ewj-label-dot" aria-hidden="true"></span>
-        Official Community
+      <div class="jadja-copy">
+        <div class="jadja-eyebrow">
+          Telegram Community
+        </div>
+
+        <h1 class="jadja-title" id="jadja-title">
+          <span>JADJA</span>
+        </h1>
+
+        <p class="jadja-description">
+          Join the official community for regular updates, useful content
+          and important announcements delivered directly on Telegram.
+        </p>
+
+        <div class="jadja-features">
+          <span class="jadja-feature">Latest Updates</span>
+          <span class="jadja-feature">Community Access</span>
+          <span class="jadja-feature">Direct Alerts</span>
+        </div>
+
+        <a
+          class="jadja-cta"
+          href="https://t.me/+E-lqoolvvP1iMmI1"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M21.8 2.2c-.3-.2-.7-.3-1.1-.1L2.1 9.3c-.7.3-.8 1.2-.1 1.6l4.7 2.3 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.5 4.8 3.5c.6.4 1.4.1 1.5-.6l3.1-16.4c.1-.4 0-.8-.3-1ZM9.3 13.5l8.4-7.4-6.5 8.3-.5 2.5-1.4-3.4Z"/>
+          </svg>
+
+          <span>Join Telegram Channel</span>
+        </a>
+
+        <div class="jadja-meta">
+          <span>Community Live</span>
+          <span>18+ Audience Only</span>
+        </div>
+
+        <div class="jadja-footer">
+          Ads by <strong>FLOX ADS</strong>
+        </div>
       </div>
-
-      <h1 class="ewj-title">
-        Earn With
-        <span>Jandeja</span>
-      </h1>
-
-      <p class="ewj-description">
-        Join our community to receive the latest updates, useful content
-        and important announcements directly on Telegram.
-      </p>
-
-      <a
-        class="ewj-telegram-btn"
-        href="https://t.me/+nSoQ_FUlmz80YzM1"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M21.8 2.2c-.3-.2-.7-.3-1.1-.1L2.1 9.3c-.7.3-.8 1.2-.1 1.6l4.7 2.3 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.5 4.8 3.5c.6.4 1.4.1 1.5-.6l3.1-16.4c.1-.4 0-.8-.3-1ZM9.3 13.5l8.4-7.4-6.5 8.3-.5 2.5-1.4-3.4Z"/>
-        </svg>
-
-        <span>Join Telegram Channel</span>
-      </a>
-
-      <div class="ewj-brand">
-        Designed by <strong>FLOX ADS</strong>
-      </div>
-    </div>
+    </section>
   </main>
 </body>
 </html>
